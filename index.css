@@ -1,0 +1,33 @@
+* {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body>ul {
+    /* grid-template: repeat(10, calc(90vh / 10)) / repeat(10, calc(90vh / 10)); */
+    gap: 1px;
+}
+
+body>ul>li {
+    /* background-color: black; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.end {
+    line-height: 100vh;
+    width: 100vw;
+    text-align: center;
+    /* display: block; */
+    font-size: 700px;
+    color: red;
+}
