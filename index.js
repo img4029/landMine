@@ -177,6 +177,7 @@ for (let i = 0; i < divCt.length; i++) {
         landMine(i);
         divCt[i].style.pointerEvents = "none";
         divCt[i].addEventListener('click', stopFunc, true);
+        win();
     })
     divCt[i].addEventListener('mousedown', function (e) {
         if ((e.button == 2) || (e.which == 3)) {
