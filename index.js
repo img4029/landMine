@@ -10,7 +10,7 @@ while (number.length > 0) {
     const newArr = number.splice(num, 1);
     const value = newArr[0];
     random.push(value - 1);
-    if (random.length > count*2) break;
+    if (random.length > count * 2) break;
 }
 
 console.log(random);
@@ -70,25 +70,24 @@ function findMine(i) {
         countMine += findCount(i + (count - 1));
     } else if (i > count * count - count) {
         countMine += findCount(i - (count));
-        countMine += findCount(i - (count+1));
-        countMine += findCount(i - (count-1));
+        countMine += findCount(i - (count + 1));
+        countMine += findCount(i - (count - 1));
         countMine += findCount(i - 1);
         countMine += findCount(i + 1);
     } else {
         countMine += findCount(i - (count));
-        countMine += findCount(i - (count+1));
-        countMine += findCount(i - (count-1));
+        countMine += findCount(i - (count + 1));
+        countMine += findCount(i - (count - 1));
         countMine += findCount(i - 1);
         countMine += findCount(i + 1);
         countMine += findCount(i + (count));
-        countMine += findCount(i + (count+1));
-        countMine += findCount(i + (count-1));
+        countMine += findCount(i + (count + 1));
+        countMine += findCount(i + (count - 1));
     }
     if (countMine !== 0) {
         divCt[i].innerText = countMine;
 
     } else {
-        // setTimeout(zeroFind(i), 1000);
         zeroFind(i);
     }
     divCt[i].style.backgroundColor = "gray";
@@ -97,6 +96,7 @@ function limit(i) {
     if (divCt[i].style.backgroundColor !== "gray") {
         divCt[i].style.backgroundColor = "gray";
         divCt[i].style.backgroundImage = "none";
+        divCt[i].style.pointerEvents = "none";
         findMine(i);
     }
 }
@@ -104,52 +104,52 @@ function zeroFind(i) {
     if (i == 0) { // 왼쪽 위
         limit(i + 1);
         limit(i + (count));
-        limit(i + (count+1));
+        limit(i + (count + 1));
     } else if (i == count - 1) { // 오른쪽 위
         limit(i - 1);
         limit(i + (count));
-        limit(i + (count-1));
+        limit(i + (count - 1));
     } else if (i == count * count - count) { // 왼쪽 아
         limit(i + 1);
         limit(i - (count));
-        limit(i - (count-1));
+        limit(i - (count - 1));
     } else if (i == count * count - 1) { // 오른쪽 아래
         limit(i - 1);
         limit(i - (count));
-        limit(i - (count+1));
+        limit(i - (count + 1));
     } else if (i < count - 1) {
         limit(i - 1);
         limit(i + 1);
-        limit(i + (count-1));
+        limit(i + (count - 1));
         limit(i + (count));
-        limit(i + (count+1));
+        limit(i + (count + 1));
     } else if (i % count == 0) {
         limit(i - (count));
-        limit(i - (count-1));
+        limit(i - (count - 1));
         limit(i + 1);
         limit(i + (count));
-        limit(i + (count+1));
+        limit(i + (count + 1));
     } else if ((i + 1) % count == 0) {
         limit(i - (count));
-        limit(i - (count+1));
+        limit(i - (count + 1));
         limit(i - 1);
         limit(i + (count));
-        limit(i + (count-1));
+        limit(i + (count - 1));
     } else if (i > count * count - count) {
         limit(i - (count));
-        limit(i - (count+1));
-        limit(i - (count-1));
+        limit(i - (count + 1));
+        limit(i - (count - 1));
         limit(i - 1);
         limit(i + 1);
     } else {
         limit(i - (count));
-        limit(i - (count+1));
-        limit(i - (count-1));
+        limit(i - (count + 1));
+        limit(i - (count - 1));
         limit(i - 1);
         limit(i + 1);
         limit(i + (count));
-        limit(i + (count+1));
-        limit(i + (count-1));
+        limit(i + (count + 1));
+        limit(i + (count - 1));
     }
 }
 function win() {
@@ -176,19 +176,20 @@ for (let i = 0; i < divCt.length; i++) {
         findMine(i);
         landMine(i);
         divCt[i].style.pointerEvents = "none";
+        divCt[i].addEventListener('click', stopFunc, true);
     })
     divCt[i].addEventListener('mousedown', function (e) {
         if ((e.button == 2) || (e.which == 3)) {
             const liColor = e.target.style.backgroundColor;
-            if (bgCount[i]==0) {
-                e.target.style.background = `url("../free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`; 
+            if (bgCount[i] == 0) {
+                e.target.style.background = `url("../free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`;
                 // divCt[i].style.pointerEvents = "none";
                 divCt[i].addEventListener('click', stopFunc, true);
                 bgCount[i] = 1;
             } else if (bgCount[i] == 1) {
                 e.target.style.backgroundImage = "none";
                 // divCt[i].style.pointerEvents = "auto";
-                divCt[i].removeEventListener('click', stopFunc, true); ;
+                divCt[i].removeEventListener('click', stopFunc, true);;
                 bgCount[i] = 0;
             }
         }
