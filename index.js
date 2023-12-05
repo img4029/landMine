@@ -17,9 +17,9 @@ console.log(random);
 function landMine(i) {
     for (let k = 0; k < random.length; k++) {
         if (i == random[k]) {
-            // alert("게임 오버");
             console.log("끝");
-            div.style.background = `url("./istockphoto-1354259673-612x612.jpg") no-repeat center/ 100%`;
+            divCt[i].style.backgroundColor = "red";
+            div.style.background = `url("./KakaoTalk_20231205_150157740.png") no-repeat center/ 70%`;
             div.innerText = "";
             div.className = "end";
             div.style.display = "block";
@@ -181,13 +181,12 @@ for (let i = 0; i < divCt.length; i++) {
         if ((e.button == 2) || (e.which == 3)) {
             const liColor = e.target.style.backgroundColor;
             if (bgCount[i] == 0) {
-                e.target.style.background = `url("./free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`;
-                // divCt[i].style.pointerEvents = "none";
+                // e.target.style.background = `url("./free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`;
+                e.target.style.background = `url("./KakaoTalk_20231205_150512263.png") no-repeat center / calc(90vh / 15) ${liColor}`;
                 divCt[i].addEventListener('click', stopFunc, true);
                 bgCount[i] = 1;
             } else if (bgCount[i] == 1) {
                 e.target.style.backgroundImage = "none";
-                // divCt[i].style.pointerEvents = "auto";
                 divCt[i].removeEventListener('click', stopFunc, true);;
                 bgCount[i] = 0;
             }
@@ -203,24 +202,3 @@ for (let i = 0; i < div.children.length; i++) {
 window.oncontextmenu = function () {
     return false;
 };
-
-
-// let arr = new Array(10);
-// for (let i = 0; i < arr.length; i++) {
-//     arr[i] = new Array(10);
-//     for (let j = 0, v; j < arr.length; j++) {
-//         arr[i][j] = i + j + 1;
-//     }
-// }
-
-// const [ar1, ar2, ar3, ar4, ar5, ar6, ar7, ar8, ar9, ar10] = arr;
-
-
-// for (let i = 0; i < 10; i++) {
-//     let sum = `ar${i}의 배열: `;
-//     for (let j = 0; j < 10; j++) {
-//         sum += ar1[j] + " "
-//     }
-//     console.log(sum);
-//     console.log("");
-// }
