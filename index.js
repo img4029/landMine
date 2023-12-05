@@ -200,9 +200,9 @@ div.style.gridTemplate = `repeat(${count}, calc(90vh / ${count})) / repeat(${cou
 for (let i = 0; i < div.children.length; i++) {
     div.children[i].style.backgroundColor = "black"
 }
-// window.oncontextmenu = function () {
-//     return false;
-// };
+window.oncontextmenu = function () {
+    return false;
+};
 
 
 // let arr = new Array(10);
