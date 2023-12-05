@@ -11,7 +11,7 @@ body {
     align-items: center;
 }
 body>ul {
-    /* grid-template: repeat(10, calc(90vh / 10)) / repeat(10, calc(90vh / 10)); */
+    /* background: url("./istockphoto-1354259673-612x612.jpg") no-repeat center ; */
     gap: 1px;
 }
 
@@ -24,6 +24,7 @@ body>ul>li {
     font-weight: bold;
 }
 .end {
+    height: 100vh;
     line-height: 100vh;
     width: 100vw;
     text-align: center;

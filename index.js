@@ -10,7 +10,7 @@ while (number.length > 0) {
     const newArr = number.splice(num, 1);
     const value = newArr[0];
     random.push(value - 1);
-    if (random.length > count * 2) break;
+    if (random.length > (count * 2) - 1) break;
 }
 
 console.log(random);
@@ -19,7 +19,8 @@ function landMine(i) {
         if (i == random[k]) {
             // alert("게임 오버");
             console.log("끝");
-            div.innerText = "펑!!";
+            div.style.background = `url("./istockphoto-1354259673-612x612.jpg") no-repeat center/ 100%`;
+            div.innerText = "";
             div.className = "end";
             div.style.display = "block";
         }
@@ -169,10 +170,7 @@ for (let i = 0; i < divCt.length; i++) {
     divCt[i] = document.createElement("li")
     div.appendChild(divCt[i]);
     divCt[i].value = i + 1;
-    // divCt[i].innerText = 0;
-
     divCt[i].addEventListener('click', (e) => {
-        // e.target.style.backgroundColor = "gray";
         findMine(i);
         landMine(i);
         divCt[i].style.pointerEvents = "none";
@@ -183,7 +181,7 @@ for (let i = 0; i < divCt.length; i++) {
         if ((e.button == 2) || (e.which == 3)) {
             const liColor = e.target.style.backgroundColor;
             if (bgCount[i] == 0) {
-                e.target.style.background = `url("../free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`;
+                e.target.style.background = `url("./free-icon-flag-5778770.png") no-repeat center / calc(90vh / 15) ${liColor}`;
                 // divCt[i].style.pointerEvents = "none";
                 divCt[i].addEventListener('click', stopFunc, true);
                 bgCount[i] = 1;
@@ -202,9 +200,9 @@ div.style.gridTemplate = `repeat(${count}, calc(90vh / ${count})) / repeat(${cou
 for (let i = 0; i < div.children.length; i++) {
     div.children[i].style.backgroundColor = "black"
 }
-window.oncontextmenu = function () {
-    return false;
-};
+// window.oncontextmenu = function () {
+//     return false;
+// };
 
 
 // let arr = new Array(10);
